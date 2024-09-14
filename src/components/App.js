@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div style={{ margin: '50px' }}>
-      <h2>User Information</h2>
+      <h1>User Information</h1>
 
       <label>Name: </label>
       <input
@@ -47,8 +47,8 @@ const App = () => {
       <br /><br />
 
       <h3>Current values in store:</h3>
-      <p><strong>Name:</strong> {name}</p>
-      <p><strong>Email:</strong> {email}</p>
+      <p className='output'><strong>Name:</strong> {name}</p>
+      <p className='output'><strong>Email:</strong> {email}</p>
     </div>
   );
 };
