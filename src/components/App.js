@@ -1,13 +1,56 @@
-
-import React from "react";
-import './../styles/App.css';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateName,updateEmail } from '../actions';
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const dispatch = useDispatch()
 
-export default App
+  // Get current values from the Redux store
+  const name = useSelector((state) => state.name);
+  const email = useSelector((state) => state.email);
+
+  // Local state for form inputs
+  const [inputName, setInputName] = useState('');
+  const [inputEmail, setInputEmail] = useState('');
+
+  // Update Redux store as user types
+  const handleNameChange = (e) => {
+    setInputName(e.target.value);
+    dispatch(updateName(e.target.value));
+  };
+
+  const handleEmailChange = (e) => {
+    setInputEmail(e.target.value);
+    dispatch(updateEmail(e.target.value));
+  };
+
+  return (
+    <div style={{ margin: '50px' }}>
+      <h2>User Information</h2>
+
+      <label>Name: </label>
+      <input
+        type="text"
+        value={inputName}
+        onChange={handleNameChange}
+        placeholder="Enter name"
+      />
+      <br /><br />
+
+      <label>Email: </label>
+      <input
+        type="email"
+        value={inputEmail}
+        onChange={handleEmailChange}
+        placeholder="Enter email"
+      />
+      <br /><br />
+
+      <h3>Current values in store:</h3>
+      <p><strong>Name:</strong> {name}</p>
+      <p><strong>Email:</strong> {email}</p>
+    </div>
+  );
+};
+
+export default App;
