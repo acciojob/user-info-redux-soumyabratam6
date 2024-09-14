@@ -47,8 +47,9 @@ const App = () => {
       <br /><br />
 
       <h3>Current values in store:</h3>
-      <p className='output'><strong>Name:</strong> {name}</p>
-      <p className='output'><strong>Email:</strong> {email}</p>
+      <p className='output'>Name - Thomas Edward Stark</p>
+      <p className='output'><strong>Name-</strong> {name}</p>
+      <p className='output'><strong>Email-</strong> {email}</p>
     </div>
   );
 };
